@@ -21,7 +21,8 @@ RUN pip install requests && \
 pip install tabulate && \
 pip install six && \
 pip install future && \
-pip install colorama
+pip install colorama && \
+pip install awscli
 
 WORKDIR /home/$NB_USER/work
 
@@ -37,12 +38,15 @@ EXPOSE 54321
 EXPOSE 54322
 EXPOSE 55555
 EXPOSE 4040
+EXPOSE 22
 
 ENV PYSPARK_DRIVER_PYTHON="ipython"
 ENV PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
-ENV NAME AWS_ACCESS_KEY
-ENV NAME AWS_SECRET_KEY
+ENV AWS_ACCESS_KEY_ID 1
+ENV AWS_SECRET_ACCESS_KEY 2
+ENV AWS_DEFAULT_REGION ap-southeast-2
+ENV AWS_DEFAULT_OUTPUT json
 
 WORKDIR sparkling-water-2.2.2
 
